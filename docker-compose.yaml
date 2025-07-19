@@ -1,9 +1,18 @@
 services:
-  flask:
+  mongo:
+    image: mongo:6
+    container_name: quran-mongo
+    restart: unless-stopped
+    ports:
+      - 27017:27017
+    volumes:
+      - ./volumes/mongo:/data/db
+  flask-app:
     build:
       context: .
       dockerfile: docker/flask.dockerfile
     container_name: quran-api
+    restart: unless-stopped
     ports:
       - 6000:5000
     volumes:
@@ -11,11 +20,4 @@ services:
     depends_on:
       - mongo
     environment:
-      MONGO_URI: mongodb://mongo:27017/
-  mongo:
-    image: mongo:6
-    container_name: mongo-db
-    ports:
-      - 27017:27017
-    volumes:
-      - ./volumes/mongo:/data/db
+      - PYTHONUNBUFFERED=1
