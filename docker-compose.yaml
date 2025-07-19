@@ -3,7 +3,7 @@ services:
     image: mongo:6
     container_name: quran-mongo
     # restart: unless-stopped
-    restart: no
+    # restart: no
     ports:
       - 27017:27017
     volumes:
@@ -14,7 +14,7 @@ services:
       dockerfile: docker/flask.dockerfile
     container_name: quran-api
     # restart: unless-stopped
-    restart: no
+    # restart: no
     ports:
       - 6000:5000
     volumes:
