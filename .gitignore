@@ -3,3 +3,4 @@ command.txt
 volumes/mongo
 volumes/flask_uploads
 rag/venv
+env/*
