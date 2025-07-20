@@ -18,7 +18,8 @@ OLLAMA_URL = "http://gaztec.ddns.net:11434/api/chat"
 
 # client = MongoClient("mongodb://localhost:27017/")
 # client = MongoClient("mongodb://host.docker.internal:27017/")
-client = MongoClient("mongodb://mongo:27017/")
+# client = MongoClient("mongodb://mongo:27017/")
+client = MongoClient("mongodb://gaztec:gaztec-secret@mongo:27017/?authSource=admin")
 db = client["quran_rag"]
 collection = db["docs_chunks"]
 
